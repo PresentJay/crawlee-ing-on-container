@@ -1,0 +1,9 @@
+{
+  "name": "crawlee-ing-on-container",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PresentJay/crawlee-ing-on-container",
+  "author": "PresentJay",
+  "license": "Apache 2.0",
+  "private": false
+}
