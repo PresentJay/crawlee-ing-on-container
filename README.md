@@ -12,6 +12,7 @@
 
 목표는 진행 과정에서 유동적으로 추가됩니다.
 
+<br>
 
 ## Prerequisite
 
@@ -23,6 +24,8 @@
 | Git | 2.35.3 |
 | NodeJs | >= 16v |
 
+
+<br>
 
 ## Getting Start
 
@@ -39,12 +42,27 @@ docker-compose -f ./docker/docker-compose.yml up
 npm run init
 ```
 
+<br>
 
 ## Git Strategy & commit convention
 
 > Git Branching Strategy: [`git workflow`](https://git-scm.com/docs/gitworkflows)
+
+<br>
+
+#### `develop` branch
+    실제 코드 관련 개발
+
+#### `document` branch
+    readme, docs 등 문서 관련 작성
+
+#### `container` branch
+    dockerfile, docker-compose 등 컨테이너 관리 코드 개발
+
+
 > Commit convention: [`Udacity Commit Message Convention`](https://udacity.github.io/git-styleguide/)
 
+<br>
 
 ## License
 
