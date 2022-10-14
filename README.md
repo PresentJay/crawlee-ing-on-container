@@ -21,6 +21,7 @@
 | ------ | ------ |
 | docker Engine | v20.10.11 |
 | Git | 2.35.3 |
+| NodeJs | >= 16v |
 
 
 ## Installation
