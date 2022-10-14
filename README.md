@@ -48,17 +48,19 @@ npm run init
 
 > Git Branching Strategy: [`git workflow`](https://git-scm.com/docs/gitworkflows)
 
-<br>
+#### `main` branch
+    최종 제품 코드. develop branch로부터 PR을 통해 전달함.
 
 #### `develop` branch
-    실제 코드 관련 개발
+    실제 코드 관련 개발. main branch 이전 모든 브랜치 코드를 병합함.
 
 #### `document` branch
-    readme, docs 등 문서 관련 작성
+    readme, docs 등 문서를 작성함.
 
 #### `container` branch
-    dockerfile, docker-compose 등 컨테이너 관리 코드 개발
+    dockerfile, docker-compose 등 컨테이너 관리 코드를 개발함.
 
+---
 
 > Commit convention: [`Udacity Commit Message Convention`](https://udacity.github.io/git-styleguide/)
 
