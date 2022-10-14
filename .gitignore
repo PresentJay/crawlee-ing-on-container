@@ -188,4 +188,7 @@ apify_storage
 crawlee_storage
 storage
 
+results/*
+!results/README.md
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,git
