@@ -1,6 +1,6 @@
-import { Dataset, createPuppeteerRouter } from 'crawlee';
+import { Dataset, createCheerioRouter } from 'crawlee';
 
-export const router = createPuppeteerRouter();
+export const router = createCheerioRouter();
 
 router.addDefaultHandler(async ({ enqueueLinks, log }) => {
     log.info(`enqueueing new URLs`);
@@ -10,8 +10,8 @@ router.addDefaultHandler(async ({ enqueueLinks, log }) => {
     });
 });
 
-router.addHandler('detail', async ({ request, page, log }) => {
-    const title = await page.title();
+router.addHandler('detail', async ({ request, $, log }) => {
+    const title = $('title').text();
     log.info(`${title}`, { url: request.loadedUrl });
 
     await Dataset.pushData({

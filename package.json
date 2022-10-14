@@ -1,12 +1,15 @@
 {
   "name": "crawlee-ing-on-container",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/PresentJay/crawlee-ing-on-container",
   "author": "PresentJay",
+  "dependencies": {
+    "crawlee": "^3.0.0"
+  },
   "scripts": {
-    "start": "ts-node-esm -T src/main.ts",
-    "build": "tsc"
+    "start": "node src/main.js",
+    "open": "bash ./scripts/opencontainer.sh"
   },
   "license": "Apache 2.0",
   "private": false
