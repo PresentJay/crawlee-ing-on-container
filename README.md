@@ -24,29 +24,27 @@
 | NodeJs | >= 16v |
 
 
-## Installation
+## Getting Start
 
+#### Installation
 작업 예정!
 
 ```sh
 docker-compose -f ./docker/docker-compose.yml up
 ```
 
-
-#### Getting Start
+#### Project Init
 
 ```sh
 npm run init
-
 ```
 
-> Note: `package.json`에 정의 예정
 
-Web UI? 고려사항 (아래 예시))
+## Git Strategy & commit convention
 
-```sh
-127.0.0.1:8000
-```
+> Git Branching Strategy: [`git workflow`](https://git-scm.com/docs/gitworkflows)
+> Commit convention: [`Udacity Commit Message Convention`](https://udacity.github.io/git-styleguide/)
+
 
 ## License
 
