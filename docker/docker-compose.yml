@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  nodejs:
+    container_name: nodejs
+    image: presentj94/nodejs
+    restart: always
+    depends_on:
+      - postgresql
+    volumes:
+      - ../:/usr/src/app
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    command: npm run start
+  postgresql:
+    container_name: postgresql
+    image: postgres:14.5-alpine
+    restart: always
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRESQL_DB}
+      - POSTGRES_USER=${POSTGRESQL_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
+    ports:
+      - 5432:5432
+volumes:
+  postgresql-data:
+  
