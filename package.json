@@ -1,9 +1,25 @@
 {
   "name": "crawlee-ing-on-container",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/PresentJay/crawlee-ing-on-container",
   "author": "PresentJay",
+  "dependencies": {
+    "crawlee": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "init": "npm install && npm run build",
+    "build": "npm run build-nodejs && npm run build-job",
+    "open": "bash ./scripts/opencontainer.sh",
+    "build-nodejs": "docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev",
+    "build-job": "docker build -t presentj94/crawlee -f ./docker/job/Dockerfile ./docker/job",
+    "db-up": "docker-compose -f docker/postgres-stack.yml -p postgres-stack up -d",
+    "db-down": "docker-compose -f docker/postgres-stack.yml -p postgres-stack down",
+    "db-log": "docker-compose -f docker/postgres-stack.yml -p postgres-stack logs -f",
+    "db-open": "echo http://localhost:5050/",
+    "db-clean": "bash scripts/cleancontainervolume.sh postgres-stack"
+  },
   "license": "Apache 2.0",
   "private": false
 }

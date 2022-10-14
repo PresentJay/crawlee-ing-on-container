@@ -181,4 +181,11 @@ dist
 # Ignore code-workspaces
 *.code-workspace
 
+.idea
+dist
+node_modules
+apify_storage
+crawlee_storage
+storage
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,git
