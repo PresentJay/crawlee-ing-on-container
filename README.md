@@ -32,15 +32,16 @@
 ## Getting Start
 
 #### Installation
-작업 예정!
 
 ```sh
-docker-compose -f ./docker/docker-compose.yml up
+npm run init
 ```
 
-#### Project Init
+#### Installation without NodeJS
 
 ```sh
+docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev
+bash ./scripts/opencontainer.sh
 npm run init
 ```
 
