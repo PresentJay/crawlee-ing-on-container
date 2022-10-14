@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Author: presentj94@gmail.com (PresentJay@Github)
+
+while getopts h-: OPT; do
+    if [ $OPT = "-" ]; then
+        OPT=${OPTARG%%=*}
+        OPTARG=${OPTARG#$OPT}
+        OPTARG=${OPTARG#=}
+    fi
+    case $OPT in
+        dir)
+            __DIR__=$OPTARG
+        ;;
+        index)
+            __INDEX__=$OPTARG
+        ;;
+        h | help | ? | *)
+            echo "example: npm run job -- --dir=\"something\" --index=\"something\""
+        ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+source ${__DIR__}/index.sh
+__TARGET__=$(eval echo \$_${__INDEX__})
+__WORKDIR__="/home/myuser"
+__FULL_TARGET__=${__WORKDIR__}/${__DIR__}/${__TARGET__}
+
+echo "docker run --name ${__DIR__}_${__TARGET__}-$(date +%s) -v /${PWD}/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} -d presentj94/crawlee \"${__DIR__}/${__TARGET__}/main.mjs\""
+docker run --name ${__DIR__}_${__TARGET__}-$(date +%s) -v /${PWD}/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} -d presentj94/crawlee \"${__DIR__}/${__TARGET__}/main.mjs\"
+
+# END
