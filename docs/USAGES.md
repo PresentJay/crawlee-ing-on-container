@@ -1,5 +1,11 @@
 ## USAGES
 
+<div align="right">
+
+[ [`main readme`](/README.md)로 이동 ]
+
+</div>
+
 #### build (nodejs를 설치하지 않은 경우)
 
 : `nodejs`를 설치하지 않은 경우, `docker/dev`의 이미지를 활용해, 컨테이너 안에서 작업합니다.
@@ -37,4 +43,4 @@ Deleted: sha256:3c7dca9ad47f1e1d534808ad6077661a2f81c1d97df590f85e53805405ade000
 
 <br>
 
-#### RUN docs/tutorials
+#### RUN tutorials

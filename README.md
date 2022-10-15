@@ -32,11 +32,12 @@
 
 ## Getting Start
 
-#### With NodeJS
+#### With NodeJS (linux/mac)
 
 ```sh
 npm run init
 npm run build-job
+./run.sh tutorial 00
 ```
 
 #### Project Init
