@@ -32,7 +32,7 @@
 
 ## Getting Start
 
-: 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
+ 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
 
 #### With NodeJS (linux/mac)
 
@@ -62,9 +62,6 @@ npm run init
 
 #### `document` branch
     readme, docs 등 문서를 작성함.
-
-#### `container` branch
-    dockerfile, docker-compose 등 컨테이너 관리 코드를 개발함.
 
 ---
 
