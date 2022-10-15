@@ -2,15 +2,16 @@
 
 - NodeJS 기반 컨테이너 + Crawlee 오픈소스 테스트용 레포지토리입니다.
 
+> `Crawlee`는 크롤링 및 스크래이핑을 빠르게 구축하는 데 필요한 npm package입니다.
+
 ## Features
 
 - Docker-compose 기반으로 Crawlee 오픈소스 테스트를 수행합니다.
 
 
-- [ ] `Crawlee` Doc을 따라 on-boarding
-
+- [ ] `Crawlee` Tutorial을 따라 on-boarding
+- [ ] `Crawlee` Docs를 따라 지원 기능 구현
 - [ ] `.env` 파일로 `Crawlee` 크롤링 결과를 저장하도록 구성
-
 
 #### 목표는 진행 과정에서 유동적으로 추가됩니다.
 
@@ -24,24 +25,23 @@
 | ------ | ------ |
 | docker Engine | v20.10.11 |
 | Git | 2.35.3 |
-| NodeJs | >= 16v |
+| NodeJs (Optional) | >= 16v |
 
 
 <br>
 
 ## Getting Start
 
-#### Installation
+#### With NodeJS
 
 ```sh
 npm run init
+npm run build-job
 ```
 
-#### Installation without NodeJS
+#### Project Init
 
 ```sh
-docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev
-bash ./scripts/opencontainer.sh
 npm run init
 ```
 
