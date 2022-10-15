@@ -32,6 +32,8 @@
 
 ## Getting Start
 
+: 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
+
 #### With NodeJS (linux/mac)
 
 ```sh
