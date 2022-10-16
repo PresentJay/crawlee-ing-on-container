@@ -9,7 +9,7 @@ log-last.sh tutorial 01
 
 그래서 그냥 `crawler.addRequests()`만 해도 동작한다!
 
-#### `결과`
+### 결과
 
 ```sh
 The title of "https://crawlee.dev" is: Crawlee · The scalable web crawling, scraping and automation library for JavaScript/Node.js | Crawlee.
