@@ -1,5 +1,9 @@
 # [First Crawler](https://crawlee.dev/docs/introduction/first-crawler)
 
+```sh
+run.sh tutorial 00
+log-last.sh tutorial 00
+```
 - `CheerioCrawler`
 - `PuppeteerCrawler`
 - `PlaywrightCrawler`

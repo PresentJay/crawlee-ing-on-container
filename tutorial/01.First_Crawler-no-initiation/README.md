@@ -1,5 +1,10 @@
 # [First Crawler with no initiation of RequestQueue](https://crawlee.dev/docs/introduction/first-crawler#add-requests-faster)
 
+```sh
+run.sh tutorial 01
+log-last.sh tutorial 01
+```
+
 ### 모든 Crawler는 암시적으로 RequestQueue 객체를 가지고 있다.
 
 그래서 그냥 `crawler.addRequests()`만 해도 동작한다!
