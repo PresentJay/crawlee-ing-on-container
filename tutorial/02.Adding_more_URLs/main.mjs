@@ -1,3 +1,5 @@
+// codes are basically from https://crawlee.dev/docs/introduction/adding-urls
+
 // Author: presentj94@gmail.com (PresentJay@Github)
 
 import { CheerioCrawler } from 'crawlee';

@@ -1,27 +1,23 @@
-// codes are basically from https://crawlee.dev/docs/introduction/first-crawler
+// codes are basically from https://crawlee.dev/docs/introduction/real-world-project
 
-// Author: presentj94@gmail.com (PresentJay@Github)
+// Instead of CheerioCrawler let's use Playwright
+// to be able to render JavaScript.
+import { PlaywrightCrawler } from 'crawlee';
 
-// Add import of CheerioCrawler.
-
-import { CheerioCrawler } from 'crawlee';
-
-const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 20,
-    async requestHandler({ $, request, enqueueLinks }) {
-        const title = $('title').text();
-        console.log(`The title of "${request.url}" is: ${title}.`);
-        await enqueueLinks({
-            strategy: 'same-domain',
-            globs: ['http?(s)://apify.com/*/*'],
-            transformRequestFunction(req) {
-                // ignore all links ending with `.pdf`
-                if (req.url.endsWith('.pdf')) return false;
-                return req;
-            },
+const crawler = new PlaywrightCrawler({
+    requestHandler: async ({ page }) => {
+        // Wait for the actor cards to render.
+        await page.waitForSelector('.ActorStoreItem');
+        // Execute a function in the browser which targets
+        // the actor card elements and allows their manipulation.
+        const actorTexts = await page.$$eval('.ActorStoreItem', (els) => {
+            // Extract text content from the actor cards
+            return els.map((el) => el.textContent);
+        });
+        actorTexts.forEach((text, i) => {
+            console.log(`ACTOR_${i + 1}: ${text}\n`);
         });
     },
 });
 
-await crawler.run(['https://crawlee.dev']);
-
+await crawler.run(['https://apify.com/store']);
