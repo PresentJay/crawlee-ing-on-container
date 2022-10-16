@@ -13,6 +13,8 @@
     "build": "npm run build-nodejs && npm run build-job",
     "open": "bash ./scripts/opencontainer.sh",
     "clean": "bash scripts/cleancontainer.sh",
+    "job": "bash scripts/runJob.sh",
+    "log-last": "bash scripts/getLogLastContainer.sh",
     "build-nodejs": "docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev",
     "build-job": "docker build -t presentj94/crawlee -f ./docker/job/Dockerfile ./docker/job",
     "prune-image": "docker rmi $(docker images -f \"dangling=true\" -q)",
@@ -20,8 +22,7 @@
     "db-down": "docker-compose -f docker/postgres-stack.yml -p postgres-stack down",
     "db-log": "docker-compose -f docker/postgres-stack.yml -p postgres-stack logs -f",
     "db-open": "echo http://localhost:5050/",
-    "db-clean": "bash scripts/cleancontainervolume.sh postgres-stack",
-    "job": "bash scripts/runJob.sh"
+    "db-clean": "bash scripts/cleancontainervolume.sh postgres-stack"
   },
   "license": "Apache 2.0",
   "private": false
