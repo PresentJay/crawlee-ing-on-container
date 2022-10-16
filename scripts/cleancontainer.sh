@@ -30,10 +30,16 @@ __TARGET__=$(eval echo \$_${__INDEX__})
 __TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__}-${__RUNNER__})
 
 if [[ -z ${__TARGET_DOCKERNAMES__} ]]; then
-    echo "there are no containers like ${__TARGET__} in ${__DIR__}"
+    echo "there are no containers like ${__TARGET__} in ${__DIR__} with ${__RUNNER__}"
 else
-    docker rm ${__TARGET_DOCKERNAMES__}
-    rm -rf results/${__TARGET_DOCKERNAMES__}
+    IFS=' '
+    read -ra iter <<< ${__TARGET_DOCKERNAMES__}
+
+    for _ in ${iter[@]}; do
+        docker rm $_
+        rm -rf results/$_
+        wait
+    done
     echo "above containers are deleted in your system."
 fi
 
