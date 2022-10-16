@@ -1,8 +1,8 @@
 # [Getting some real-world data](https://crawlee.dev/docs/introduction/real-world-project)
 
 ```sh
-crawling.sh job tutorial 03
-log-last.sh tutorial 03
+./crawling.sh play tutorial 03
+./log-last.sh play tutorial 03
 ```
 
 ## 03 튜토리얼 목표

@@ -1,8 +1,8 @@
 # [Saving data](https://crawlee.dev/docs/introduction/saving-data)
 
 ```sh
-crawling.sh job tutorial 06
-log-last.sh tutorial 06
+./crawling.sh play tutorial 06
+./log-last.sh play tutorial 06
 ```
 
 ## 06 튜토리얼 목표

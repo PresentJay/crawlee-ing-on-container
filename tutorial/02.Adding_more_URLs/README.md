@@ -1,8 +1,8 @@
 # [Adding more URLs](https://crawlee.dev/docs/introduction/adding-urls)
 
 ```sh
-crawling.sh job tutorial 02
-log-last.sh tutorial 02
+./crawling.sh job tutorial 02
+./log-last.sh job tutorial 02
 ```
 
 ## 02 튜토리얼 목표

@@ -1,8 +1,8 @@
 # [First Crawler](https://crawlee.dev/docs/introduction/first-crawler)
 
 ```sh
-crawling.sh job tutorial 00
-log-last.sh tutorial 00
+./crawling.sh job tutorial 00
+./log-last.sh job tutorial 00
 ```
 
 - `CheerioCrawler`

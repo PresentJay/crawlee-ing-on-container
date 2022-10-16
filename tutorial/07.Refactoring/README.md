@@ -1,8 +1,8 @@
 # [Refactoring](https://crawlee.dev/docs/introduction/refactoring)
 
 ```sh
-crawling.sh job tutorial 07
-log-last.sh tutorial 07
+./crawling.sh play tutorial 07
+./log-last.sh play tutorial 07
 ```
 
 ## 07 튜토리얼 목표

@@ -1,8 +1,8 @@
 # [Scraping the Store](https://crawlee.dev/docs/introduction/scraping)
 
 ```sh
-crawling.sh job tutorial 05
-log-last.sh tutorial 05
+./crawling.sh play tutorial 05
+./log-last.sh play tutorial 05
 ```
 
 ## 05 튜토리얼 목표
