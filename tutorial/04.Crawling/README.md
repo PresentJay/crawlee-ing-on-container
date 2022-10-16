@@ -5,7 +5,7 @@ crawling.sh job tutorial 04
 log-last.sh tutorial 04
 ```
 
-## 03 튜토리얼 목표
+## 04 튜토리얼 목표
 
 - `Apify Store`(https://apify.com/store)를 크롤링.
 - 목록 페이지와 세부 페이지를 모두 방문
