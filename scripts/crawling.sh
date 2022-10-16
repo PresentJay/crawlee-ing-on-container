@@ -9,6 +9,10 @@ while getopts h-: OPT; do
         OPTARG=${OPTARG#=}
     fi
     case $OPT in
+        runner)
+            # TODO: RUNNER Type Check하는 코드 필요
+            __RUNNER__=$OPTARG
+        ;;
         dir)
             __DIR__=$OPTARG
         ;;
@@ -16,7 +20,8 @@ while getopts h-: OPT; do
             __INDEX__=$OPTARG
         ;;
         h | help | ? | *)
-            echo "example: npm run job -- --dir=\"something\" --index=\"something\""
+            echo "example: npm run crawling -- --runner=\"something\" --dir=\"something\" --index=\"something\""
+            exit 1
         ;;
     esac
 done
@@ -26,7 +31,7 @@ source ${__DIR__}/index.sh
 __TARGET__=$(eval echo \$_${__INDEX__})
 __WORKDIR__="/home/myuser"
 __FULL_TARGET__=${__WORKDIR__}/${__DIR__}/${__TARGET__}
-__DOCKERNAME__=${__DIR__}_${__TARGET__}-$(date +%s)
+__DOCKERNAME__=${__DIR__}_${__TARGET__}-${__RUNNER__}$(date +%s)
 
 mkdir results/${__DOCKERNAME__}
 
@@ -34,7 +39,7 @@ docker run -d \
     --name ${__DOCKERNAME__} \
     -v ${PWD}/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} \
     -v ${PWD}/results/${__DOCKERNAME__}:${__WORKDIR__}/storage \
-    presentj94/crawlee \
+    presentj94/crawlee-${__RUNNER__} \
     ${__DIR__}/${__TARGET__}/main.mjs
 
 # END

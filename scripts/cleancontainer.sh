@@ -9,6 +9,9 @@ while getopts h-: OPT; do
         OPTARG=${OPTARG#=}
     fi
     case $OPT in
+        runner)
+            __RUNNER__=$OPTARG
+        ;;
         dir)
             __DIR__=$OPTARG
         ;;
@@ -16,7 +19,7 @@ while getopts h-: OPT; do
             __INDEX__=$OPTARG
         ;;
         h | help | ? | *)
-            echo "example: npm run clean -- --dir=\"something\" --index=\"something\""
+            echo "example: npm run clean -- --runner=\"something\" --dir=\"something\" --index=\"something\""
         ;;
     esac
 done
@@ -24,10 +27,9 @@ shift $(( OPTIND - 1 ))
 
 source ${__DIR__}/index.sh
 __TARGET__=$(eval echo \$_${__INDEX__})
-__TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__})
+__TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__}-${__RUNNER__})
 
-# [ISSUE] arithmatic error
-if [[ ${__TARGET_DOCKERNAMES__} -eq 0 ]]; then
+if [[ -z ${__TARGET_DOCKERNAMES__} ]]; then
     echo "there are no containers like ${__TARGET__} in ${__DIR__}"
 else
     docker rm ${__TARGET_DOCKERNAMES__}

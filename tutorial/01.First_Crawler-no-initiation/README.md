@@ -1,7 +1,7 @@
 # [First Crawler with no initiation of RequestQueue](https://crawlee.dev/docs/introduction/first-crawler#add-requests-faster)
 
 ```sh
-run.sh tutorial 01
+crawling.sh job tutorial 01
 log-last.sh tutorial 01
 ```
 

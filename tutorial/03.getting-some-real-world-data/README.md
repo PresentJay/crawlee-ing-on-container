@@ -1,13 +1,15 @@
-# [Adding more URLs](https://crawlee.dev/docs/introduction/adding-urls)
+# [Getting some real-world data](https://crawlee.dev/docs/introduction/real-world-project)
 
 ```sh
-crawling.sh job tutorial 02
-log-last.sh tutorial 02
+crawling.sh job tutorial 03
+log-last.sh tutorial 03
 ```
 
-## 02 튜토리얼 목표
+## 03 튜토리얼 목표
 
-- 대기열(`RequestQueue`)에 더 많은 URL을 추가하면, Crawler가 계속 스크랩.
+- `Apify Store`(https://apify.com/store)를 크롤링하는 예제.
+  - `Actor`를 스크랩
+- `JavaScript Rendering`이 포함됨.
 
 <br>
 
@@ -17,26 +19,26 @@ log-last.sh tutorial 02
 2. domain을 가리키는 항목 필터링
 3. [`RequestQueue`](https://crawlee.dev/api/core/function/enqueueLinks)에 추가
 
-
 <br>
 
+### `사전 조사`
 
-### `maxRequestsPerCrawl`으로 crawl 제한하기
+: 크롤링/스크래이핑을 시작하기 전. 간단한 사전 조사가 필요함.
 
-: 코드를 테스트하거나, 수백만 개의 링크가 있는 크롤링 페이지를 탐색하는 경우, 최대 한도를 설정하는 것도 중요합니다.
+- [ ] 웹사이트의 구성
+- [ ] HTTP 요청으로만 스크랩 가능한지 (`CheerioCrawler`)
+- [ ] Headless 브라우저가 필요한지
+- [ ] 크롤링 방지 장치가 있는지
+- [ ] HTML을 구문 분석해야하는지/API로 직접 가져올 수 있는지
 
-```js
-const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 20,
-    // ...
-});
-```
+---
 
-위 코드는 20번 크롤링이 수행되면 더이상 `Request`를 수행하지 않습니다.
+03 튜토리얼에서는 다음과 같이 설정함.
 
+- [x] `CheerioCrawler`로 스크래이핑 불가능 --> `PlaywrightCrawler`로 동작
+- [x] Headless 브라우저가 필요한지
 
 <br>
-
 
 ### 새로운 link를 찾는 방법
 
@@ -67,8 +69,6 @@ const sameHostnameLinks = absoluteUrls
 await crawler.addRequests(sameHostnameLinks);
 ```
 
-<br>
-
 ### 동일한 도메인 유지
 
 : 목표한 웹사이트에서 `Google`, `Facebook`, `Twitter` 등 외부 사이트로 이동하지 않기 위해 필터링 기능이 필요함
@@ -82,9 +82,6 @@ await enqueueLinks({
 });
 ```
 
-<br>
-
-
 ### 중복URL 제거
 
 : 동일한 페이지를 여러 번 반복하면, 중복된 URL을 건너뛰는 게 중요.
@@ -92,9 +89,6 @@ await enqueueLinks({
 `RequestQueue`에서 `uniqueKey`로 처리 가능
 
 ##### `uniqueKey`: URL을 소문자화, 쿼리 매개변수를 정렬(`lexical`), 일부 표현 제거 등등
-
-
-<br>
 
 
 
@@ -108,9 +102,6 @@ await enqueueLinks({
 
 
 
-<br>
-
-
 ### [URL 필터링 패턴](https://crawlee.dev/api/core/interface/EnqueueLinksOptions)
 
 : `globs`, `regexps`, `pseudoUrls`를 추가적으로 활용 가능.
@@ -119,15 +110,9 @@ await enqueueLinks({
 - 위 패턴을 사용 시, 명시적으로 설정하지 않는 한 `same-hostname`(`EnqueueStrategy`)이 적용되지 않음.
 
 
-<br>
-
-
 ### `Request` 변형하기
 
 : `Request`가 새롭게 생성되어 `RequestQueue`에 추가되기 직전에 동작하는 함수: `transformRequestFunction`
-
-
-<br>
 
 
 ### 결과
