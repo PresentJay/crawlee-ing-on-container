@@ -32,3 +32,10 @@
 - 크롤러가 `RequestQueue`의 각 `Request`마다 자동으로 호출함.
 - 항상 `CrawlingContext`라는 하나의 인수를 받고, 크롤러의 클래스에 따라 달라진다.
 - 항상 `Request` 의 속성으로 포함되어야 함.
+
+
+#### `결과`
+
+```sh
+The title of "https://crawlee.dev" is: Crawlee · The scalable web crawling, scraping and automation library for JavaScript/Node.js | Crawlee.
+```
