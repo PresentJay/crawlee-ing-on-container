@@ -8,7 +8,7 @@
 
 - Docker-compose 기반으로 Crawlee 오픈소스 테스트를 수행합니다.
 
-- [ ] `Crawlee` Tutorial을 따라 on-boarding
+- [x] `Crawlee` Tutorial을 따라 on-boarding
 - [ ] `Crawlee` Docs를 따라 지원 기능 구현
 - [ ] `.env` 파일로 `Crawlee` 크롤링 구성 도전
 - [ ] `postgresql`으로 크롤링 결과 데이터 저장
