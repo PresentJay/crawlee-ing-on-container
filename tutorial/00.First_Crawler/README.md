@@ -4,6 +4,7 @@
 run.sh tutorial 00
 log-last.sh tutorial 00
 ```
+
 - `CheerioCrawler`
 - `PuppeteerCrawler`
 - `PlaywrightCrawler`
@@ -15,7 +16,7 @@ log-last.sh tutorial 00
 - 크롤러에게 중요한 것은 `목적지`와 `행동`임.
 
 
-#### `목적지`
+### 목적지
 
 : `Request` 클래스의 인스턴스를 사용하여 목적지를 결정함.
 
@@ -28,7 +29,7 @@ log-last.sh tutorial 00
 - 크롤러가 `Request`의 URL을 작업하는 동안, 동일한 도메인의 다른 페이지들을 대기열에 추가(`queuing`).
 
 
-#### `행동`
+### 행동
 
 : `RequestHandler`는 크롤러가 방문한 페이지에서 수행할 사용자 정의 함수를 나타냄.
 
@@ -38,7 +39,7 @@ log-last.sh tutorial 00
 - 항상 `Request` 의 속성으로 포함되어야 함.
 
 
-#### `결과`
+### 결과
 
 ```sh
 The title of "https://crawlee.dev" is: Crawlee · The scalable web crawling, scraping and automation library for JavaScript/Node.js | Crawlee.

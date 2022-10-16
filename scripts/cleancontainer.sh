@@ -26,7 +26,7 @@ source ${__DIR__}/index.sh
 __TARGET__=$(eval echo \$_${__INDEX__})
 __TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__})
 
-if [[ ${__TARGET_DOCKERNAMES__} -eq 0 ]]; then
+if [ ${__TARGET_DOCKERNAMES__} -eq 0 ]; then
     echo "there are no containers like ${__TARGET__} in ${__DIR__}"
 else
     docker rm ${__TARGET_DOCKERNAMES__}
