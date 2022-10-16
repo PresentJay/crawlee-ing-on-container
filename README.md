@@ -37,7 +37,20 @@
    1. `dev`: v16+의 nodejs 이미지입니다. (presentj94/nodejs)
    2. `job`: puppetear-crawlee 이미지입니다. (presentj94/crawlee-job)
    3. `play`: playwright-crawlee 이미지입니다. (presentj94/crawlee-play)
-3. 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
+3. 주요 스크립트는 세 가지로 운영됩니다.
+   1. ./`crawling.sh`
+      1. 크롤링 코드(`main.mjs`)를 실행하는 docker runner를 생성합니다.
+      2. `runner`, `directory`, `index` 순서로 입력합니다.
+      3. example) `./crawling.sh job tutorial 02`
+   2. ./`log-last.sh`
+      1. 가장 최근 특정 `runner`에 의해 실행된 `directory`/`index`의 컨테이너 로그를 보여줍니다.
+      2. `runner`, `directory`, `index` 순서로 입력합니다.
+      3. example) `./log-last.sh job tutorial 02`
+   3. ./`clean.sh`
+      1. 가장 최근 특정 `runner`에 의해 실행된 `directory`/`index`의 컨테이너를 삭제하고, 그 컨테이너의 결과 디렉토리도 함께 삭제합니다.
+      2. `runner`, `directory`, `index` 순서로 입력합니다.
+      3. example) `./clean.sh job tutorial 02`
+4. 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
 
 #### With NodeJS (linux/mac)
 
