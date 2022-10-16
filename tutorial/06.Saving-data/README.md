@@ -31,6 +31,8 @@ await Dataset.pushData(results);
 - await을 사용해야 함 (크롤러가 종료되기 전 저장하는 것을 방지)
 - 한 데이터의 크기가 JSON, 9MB 이하여야 함
 - [`저장 가이드`](https://crawlee.dev/docs/guides/result-storage#dataset)
+- 결과 데이터는 `${ResultURL}/datasets/` 하위에 데이터 하나씩 json으로 저장됨.
+  - [`다른 방식`](https://crawlee.dev/docs/guides/result-storage#key-value-store)은 나중에 더 찾아봐야함(TODO)
 
 <br>
 
