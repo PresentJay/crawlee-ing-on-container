@@ -1,8 +1,6 @@
-// codes are basically from https://crawlee.dev/docs/introduction/first-crawler
+// codes are basically from https://crawlee.dev/docs/introduction/adding-urls
 
 // Author: presentj94@gmail.com (PresentJay@Github)
-
-// Add import of CheerioCrawler.
 
 import { CheerioCrawler } from 'crawlee';
 

@@ -1,7 +1,7 @@
 # [Adding more URLs](https://crawlee.dev/docs/introduction/adding-urls)
 
 ```sh
-run.sh tutorial 02
+crawling.sh job tutorial 02
 log-last.sh tutorial 02
 ```
 
@@ -9,12 +9,16 @@ log-last.sh tutorial 02
 
 - 대기열(`RequestQueue`)에 더 많은 URL을 추가하면, Crawler가 계속 스크랩.
 
+<br>
 
 ### 크롤링 프로세스 (반복)
 
 1. 페이지에서 새로운 링크 탐색
 2. domain을 가리키는 항목 필터링
 3. [`RequestQueue`](https://crawlee.dev/api/core/function/enqueueLinks)에 추가
+
+
+<br>
 
 
 ### `maxRequestsPerCrawl`으로 crawl 제한하기
@@ -29,6 +33,9 @@ const crawler = new CheerioCrawler({
 ```
 
 위 코드는 20번 크롤링이 수행되면 더이상 `Request`를 수행하지 않습니다.
+
+
+<br>
 
 
 ### 새로운 link를 찾는 방법
@@ -60,6 +67,8 @@ const sameHostnameLinks = absoluteUrls
 await crawler.addRequests(sameHostnameLinks);
 ```
 
+<br>
+
 ### 동일한 도메인 유지
 
 : 목표한 웹사이트에서 `Google`, `Facebook`, `Twitter` 등 외부 사이트로 이동하지 않기 위해 필터링 기능이 필요함
@@ -73,6 +82,9 @@ await enqueueLinks({
 });
 ```
 
+<br>
+
+
 ### 중복URL 제거
 
 : 동일한 페이지를 여러 번 반복하면, 중복된 URL을 건너뛰는 게 중요.
@@ -80,6 +92,9 @@ await enqueueLinks({
 `RequestQueue`에서 `uniqueKey`로 처리 가능
 
 ##### `uniqueKey`: URL을 소문자화, 쿼리 매개변수를 정렬(`lexical`), 일부 표현 제거 등등
+
+
+<br>
 
 
 
@@ -93,6 +108,9 @@ await enqueueLinks({
 
 
 
+<br>
+
+
 ### [URL 필터링 패턴](https://crawlee.dev/api/core/interface/EnqueueLinksOptions)
 
 : `globs`, `regexps`, `pseudoUrls`를 추가적으로 활용 가능.
@@ -101,9 +119,15 @@ await enqueueLinks({
 - 위 패턴을 사용 시, 명시적으로 설정하지 않는 한 `same-hostname`(`EnqueueStrategy`)이 적용되지 않음.
 
 
+<br>
+
+
 ### `Request` 변형하기
 
 : `Request`가 새롭게 생성되어 `RequestQueue`에 추가되기 직전에 동작하는 함수: `transformRequestFunction`
+
+
+<br>
 
 
 ### 결과

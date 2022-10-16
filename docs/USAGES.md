@@ -11,15 +11,17 @@
 : `nodejs`를 설치하지 않은 경우, `docker/dev`의 이미지를 활용해, 컨테이너 안에서 작업합니다.
 
 ```sh
+docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev
+bash scripts/opencontainer.sh
 npm run build
 ```
 
 <br>
 
-## #build (nodejs를 설치한 경우)
+## #build runner (nodejs를 설치한 경우)
 
 ```sh
-npm run build-job
+npm run build-
 ```
 
 <br>
@@ -43,30 +45,30 @@ Deleted: sha256:3c7dca9ad47f1e1d534808ad6077661a2f81c1d97df590f85e53805405ade000
 
 <br>
 
-## #job 실행 -> DIR/INDEX (has `main.js`)
+## #runner 실행 -> DIR/INDEX (has `main.js`)
 
 ```sh
-npm run job -- --dir ${DIR} --index ${INDEX}
+npm run crawling -- --runner ${RUNNER} --dir ${DIR} --index ${INDEX}
 ```
 
 ### example
 
 ```sh
-npm run job -- dir tutorial --index 00
+npm run crawling -- --runner job dir tutorial --index 02
 ```
 
 <br>
 
-## #job 컨테이너 삭제 + 관련 결과 삭제 (전체)
+## #runner 컨테이너 삭제 + 관련 결과 삭제 (전체)
 
 ```sh
-npm run clean -- --dir ${DIR} --index ${INDEX}
+npm run clean -- --runner ${RUNNER} --dir ${DIR} --index ${INDEX}
 ```
 
 ### example
 
 ```sh
-npm run clean -- dir tutorial --index 00
+npm run clean -- --runner job dir tutorial --index 02
 ```
 
 <br>

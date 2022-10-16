@@ -5,18 +5,20 @@
   "repository": "https://github.com/PresentJay/crawlee-ing-on-container",
   "author": "PresentJay",
   "dependencies": {
-    "crawlee": "^3.0.0"
+    "crawlee": "^3.0.0",
+    "playwright": "*"
   },
   "scripts": {
     "start": "node src/main.js",
     "init": "npm install && npm run build",
-    "build": "npm run build-nodejs && npm run build-job",
+    "build": "npm run build-nodejs && npm run build-job && npm run build-play",
     "open": "bash ./scripts/opencontainer.sh",
     "clean": "bash scripts/cleancontainer.sh",
-    "job": "bash scripts/runJob.sh",
+    "crawling": "bash scripts/crawling.sh",
     "log-last": "bash scripts/getLogLastContainer.sh",
     "build-nodejs": "docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev",
-    "build-job": "docker build -t presentj94/crawlee -f ./docker/job/Dockerfile ./docker/job",
+    "build-job": "docker build -t presentj94/crawlee-job -f ./docker/job/Dockerfile ./docker/job",
+    "build-play": "docker build -t presentj94/crawlee-play -f ./docker/play/Dockerfile ./docker/play",
     "prune-image": "docker rmi $(docker images -f \"dangling=true\" -q)",
     "db-up": "docker-compose -f docker/postgres-stack.yml -p postgres-stack up -d",
     "db-down": "docker-compose -f docker/postgres-stack.yml -p postgres-stack down",
