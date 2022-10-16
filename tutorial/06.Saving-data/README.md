@@ -1,4 +1,4 @@
-# [Scraping data](https://crawlee.dev/docs/introduction/saving-data)
+# [Saving data](https://crawlee.dev/docs/introduction/saving-data)
 
 ```sh
 crawling.sh job tutorial 06
