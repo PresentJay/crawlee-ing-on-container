@@ -25,7 +25,7 @@ while getopts h-: OPT; do
 done
 shift $(( OPTIND - 1 ))
 
-source ${__DIR__}/index.sh
+source src/${__DIR__}/index.sh
 __TARGET__=$(eval echo \$_${__INDEX__})
 __TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__}-${__RUNNER__})
 
@@ -34,7 +34,7 @@ if [[ -z ${__TARGET_DOCKERNAMES__} ]]; then
 else
     read -ra iter <<< ${__TARGET_DOCKERNAMES__}
     for _ in ${iter[@]}; do
-        docker rm $_
+        [[ -n $(docker stop $_) ]] && docker rm $_
         rm -rf results/$_
     done
     echo "above containers are deleted in your system."
