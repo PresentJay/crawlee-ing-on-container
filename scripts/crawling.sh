@@ -37,6 +37,7 @@ mkdir results/${__DOCKERNAME__}
 
 docker run -d \
     --name ${__DOCKERNAME__} \
+    -e TZ=Asia/Seoul \
     -v ${PWD}/src/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} \
     -v ${PWD}/results/${__DOCKERNAME__}:${__WORKDIR__}/storage \
     presentj94/crawlee-${__RUNNER__} \
