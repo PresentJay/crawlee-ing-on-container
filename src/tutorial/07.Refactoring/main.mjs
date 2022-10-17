@@ -1,6 +1,6 @@
 // codes are basically from https://crawlee.dev/docs/introduction/refactoring
 
-import { PlaywrightCrawler, log } from 'crawlee';
+import { PlaywrightCrawler, log, Dataset } from 'crawlee';
 import { router } from './routes.mjs';
 
 // This is better set with CRAWLEE_LOG_LEVEL env var
@@ -20,3 +20,6 @@ await crawler.addRequests(['https://apify.com/store']);
 
 // crawler.run has its own logs 🙂
 await crawler.run();
+
+// Open a named dataset
+await exportToCSV('OUTPUT');

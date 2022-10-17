@@ -25,7 +25,7 @@ while getopts h-: OPT; do
 done
 shift $(( OPTIND - 1 ))
 
-source ${__DIR__}/index.sh
+source src/${__DIR__}/index.sh
 __TARGET__=$(eval echo \$_${__INDEX__})
 __TARGET_DOCKERNAMES__=$(docker ps -a --format {{.Names}} | grep ${__DIR__}_${__TARGET__}-${__RUNNER__})
 
