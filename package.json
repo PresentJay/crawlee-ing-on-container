@@ -19,7 +19,7 @@
     "build-nodejs": "docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev",
     "build-job": "docker build -t presentj94/crawlee-job -f ./docker/job/Dockerfile ./docker/job",
     "build-play": "docker build -t presentj94/crawlee-play -f ./docker/play/Dockerfile ./docker/play",
-    "prune-image": "docker rmi $(docker images -f \"dangling=true\" -q)",
+    "prune-image": "docker rmi $(docker images -f dangling=true -q)",
     "db-up": "docker-compose -f docker/postgres-stack.yml -p postgres-stack up -d",
     "db-down": "docker-compose -f docker/postgres-stack.yml -p postgres-stack down",
     "db-log": "docker-compose -f docker/postgres-stack.yml -p postgres-stack logs -f",

@@ -32,14 +32,15 @@ __TARGET__=$(eval echo \$_${__INDEX__})
 __WORKDIR__="/home/myuser"
 __FULL_TARGET__=${__WORKDIR__}/src/${__DIR__}/${__TARGET__}
 __DOCKERNAME__=${__DIR__}_${__TARGET__}-${__RUNNER__}$(date +%s)
+echo ${PWD}/src/${__DIR__}/${__TARGET__}:${__FULL_TARGET__}
 
 mkdir results/${__DOCKERNAME__}
 
 docker run -d \
     --name ${__DOCKERNAME__} \
     -e TZ=Asia/Seoul \
-    -v ${PWD}/src/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} \
-    -v ${PWD}/results/${__DOCKERNAME__}:${__WORKDIR__}/storage \
+    -v /${PWD}/src/${__DIR__}/${__TARGET__}:${__FULL_TARGET__} \
+    -v /${PWD}/results/${__DOCKERNAME__}:${__WORKDIR__}/storage \
     presentj94/crawlee-${__RUNNER__} \
     src/${__DIR__}/${__TARGET__}/main.mjs
 

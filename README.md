@@ -52,24 +52,12 @@
       3. example) `./clean.sh job tutorial 02`
 4. 자세한 사용 방법은 [`USAGES.md`](docs/USAGES.md) 를 확인해주세요.
 
-#### With NodeJS (linux/mac)
+#### With NodeJS
 
 ```sh
 npm run init
 npm run build
 ./crawling.sh job tutorial 02
-```
-
-#### Without NodeJS (linux/mac)
-
-```sh
-docker build -t presentj94/nodejs -f ./docker/dev/Dockerfile ./docker/dev
-bash scripts/opencontainer.sh
-
-# access into container ($shell#/usr/src/app)
-npm run init
-npm run build
-./crawling.sh play tutorial 03
 ```
 
 <br>

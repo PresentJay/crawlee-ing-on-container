@@ -19,8 +19,8 @@ RUN npm --quiet set progress=false \
     && echo "NPM version:" \
     && npm --version \
     && npm install -D playwright -y \
-    && npm install crawlee@3.1.0 \
-    && npx playwright install
+    && npx playwright install \
+    && npm install crawlee@3.1.0
 
 # Next, copy the remaining files and directories with the source code.
 # Since we do this after NPM install, quick build will be really fast
