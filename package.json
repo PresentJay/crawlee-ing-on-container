@@ -5,7 +5,7 @@
   "repository": "https://github.com/PresentJay/crawlee-ing-on-container",
   "author": "PresentJay",
   "dependencies": {
-    "crawlee": "^3.0.0",
+    "crawlee": "^3.1.0",
     "playwright": "*"
   },
   "scripts": {

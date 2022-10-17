@@ -11,8 +11,7 @@ log.debug('Setting up crawler.');
 const crawler = new PlaywrightCrawler({
     // Instead of the long requestHandler with
     // if clauses we provide a router instance.
-    requestHandler: router,
-    maxRequestsPerCrawl: 20
+    requestHandler: router
 });
 
 log.debug('Adding requests to the queue.');
@@ -20,3 +19,7 @@ await crawler.addRequests(['https://apify.com/store']);
 
 // crawler.run has its own logs 🙂
 await crawler.run();
+
+// Export the entirety of the dataset to a single file in
+// a key-value store named "my-data" under the key "OUTPUT"
+await Dataset.exportToCSV('OUTPUT', { toKVS: 'my-data' });

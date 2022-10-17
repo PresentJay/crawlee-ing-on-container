@@ -194,3 +194,4 @@ results/*
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,git
 
 src/study
+*/.DS_Store

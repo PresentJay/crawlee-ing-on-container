@@ -19,6 +19,7 @@ RUN npm --quiet set progress=false \
     && echo "NPM version:" \
     && npm --version \
     && npm install -D playwright -y \
+    && npm install crawlee@3.1.0 \
     && npx playwright install
 
 # Next, copy the remaining files and directories with the source code.
