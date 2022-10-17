@@ -20,6 +20,3 @@ await crawler.addRequests(['https://apify.com/store']);
 
 // crawler.run has its own logs 🙂
 await crawler.run();
-
-// Open a named dataset
-await exportToCSV('OUTPUT');
